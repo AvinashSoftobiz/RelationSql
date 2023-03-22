@@ -28,6 +28,7 @@ export class User extends AggregateRoot<UserProps> {
 		this._props.products= product
 		return Result.ok(this)
 	}
+	
 	//#region public methods
 	public static create(props: UserProps, id?: UniqueEntityID, dataSource?: eDataSource) {
 		if (dataSource === eDataSource.STORAGE) return Result.ok(new User(props, id))

@@ -14,9 +14,8 @@ export class UserCreateCommandHandler implements IRequestHandler<UserCreateComma
 	async handle(commandOrQuery: UserCreateCommand, token?: string): Promise<UserCreateResponseType> {
 
 		const products = Product.create({
-			name: commandOrQuery.name
+			p_name: commandOrQuery.products.name
 		})
-
 
 		const productValue = products.getValue()
 		const user = User.create({

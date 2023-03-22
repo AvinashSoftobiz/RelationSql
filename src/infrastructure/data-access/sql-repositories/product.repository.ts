@@ -27,7 +27,6 @@ export class ProductSqlRepository implements IProductRepository {
     throw new Error('Method not implemented.')
   }
 	//#endregion
-	
 
 	async save(input: Product): Promise<Result<Product>> {
 		const persistence = this._mapper.toPersistence(input)

@@ -22,8 +22,8 @@ export class UserCreateCommand implements IRequest<UserCreateResponseType> {
 	public name: string
 
 	@IsOptional()
-	@ApiProperty({ isArray: true, type: Product })
-	public products: Product[]
+	@ApiProperty()
+	public products: Product
 
 	public constructor(init?: Partial<UserCreateCommand>) {
 		Object.assign(this, init)

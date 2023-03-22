@@ -19,7 +19,7 @@ export class  UserSqlMapper implements IMapper {
 			new UniqueEntityID(raw.uuid),
 			eDataSource.STORAGE,
 		).getValue()
-		// throw new Error()
+		
 	}
 
 	toPersistence(input: User, curEntity?: UserModel): UserModel {
@@ -33,14 +33,10 @@ export class  UserSqlMapper implements IMapper {
 			ProductModel.user= curEntity
 			return ProductModel
 		})
-		// const ProductModel =this.productMapper.toPersistence(input.props.products)
-		// ProductModel.user=curEntity 
-		// curEntity.product=ProductModel
-		
-		//@todo:: improve mapping
 		return curEntity;
 	}
 	toDto(input: UserModel): IDTO {
 		throw new Error('Method not implemented.')
 	}
 }
+

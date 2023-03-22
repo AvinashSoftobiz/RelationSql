@@ -11,7 +11,7 @@ export class  ProductSqlMapper implements IMapper {
 	toDomain(raw:  ProductModel): Product {
 		return  Product.create(
 			{
-				name: raw.name
+				p_name: raw.name
 				
 			},
 			new UniqueEntityID(raw.uuid),
@@ -24,7 +24,7 @@ export class  ProductSqlMapper implements IMapper {
 			curEntity = new ProductModel()
 		}
 		curEntity.uuid = input.getProductID.toString()
-		curEntity.name = input.props.name;
+		curEntity.name = input.props.p_name;
 		
 		//@todo:: improve mapping
 		return curEntity;

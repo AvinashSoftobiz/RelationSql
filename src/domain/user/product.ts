@@ -1,7 +1,7 @@
 import { eDataSource, GenericAppError, Result, UniqueEntityID, Entity } from '@softobiz-df/shared-lib'
 
 interface ProductProps {
-	name: string	
+	p_name: string	
 }
 export class Product extends Entity<ProductProps> {
 
@@ -14,7 +14,7 @@ export class Product extends Entity<ProductProps> {
 	//#endregion
 	//#region private setters
 	private setName(name: string){
-		this._props.name = name
+		this._props.p_name = name
 		return Result.ok(this)
 	}	
 	//#endregion
@@ -23,7 +23,7 @@ export class Product extends Entity<ProductProps> {
 		if (dataSource === eDataSource.STORAGE) return Result.ok(new Product(props, id))
 		const product = new Product(Object.create(null), id)
 		const validationQueue = [
-			product.setName(props.name)	
+			product.setName(props.p_name)	
 		]
 		const combinedResult = Result.combine(validationQueue)
 		if (combinedResult.isFailure) return Result.fail<Product>(new GenericAppError.DomainError(combinedResult.errorValue()))
